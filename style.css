@@ -1,0 +1,53 @@
+/* font-family: 'Squada One', cursive;
+font-family: 'Fjalla One', sans-serif;
+font-family: 'Anton', sans-serif;
+font-family: 'Varela Round', sans-serif;
+font-family: 'Righteous', cursive; */
+
+body{
+    font-family: 'Varela Round', sans-serif;
+    height: 100%;
+    width: 100%;
+    padding:0;margin:0;  
+}
+.layout-grid{
+    display: grid;
+    grid-template-columns: repeat(5,1fr);
+    grid-template-rows: repeat(7,1fr);
+}
+/* 
+.title{
+    grid-row: 4; 
+    grid-column: 3;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 25px;
+} */
+.title{
+    grid-row: 1; 
+    grid-column: 1;
+    font-size: 25px;
+    display: inline-block;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+.word-input{
+    grid-column:3;
+    grid-row: 3;
+    font-size: 25px;
+    display: inline-block;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+
+}
+.submit{
+    border: .1px solid black;
+    background-color: white;
+    font-size: 15px;
+}
+.text-input{
+    font-size: 20px;
+}
