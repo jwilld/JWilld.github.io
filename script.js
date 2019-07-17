@@ -41,6 +41,10 @@ newWord.addEventListener('click',makeNewWord)
 
 function makeNewWord(){
     // removes the hr items
+    charCount = []
+    guessWord = null
+    let letterContainers = document.querySelectorAll('.under-line div')
+    letterContainers.forEach(container => container.remove())
     let guessLetters = document.querySelectorAll('.under-line h4')
     guessLetters.forEach( letter => letter.remove())
     let guessSubmit = document.querySelector('.guess-submit')
@@ -83,6 +87,7 @@ function createSubmit(){
     guessSubmit.addEventListener('click',function(){
         let guessBox = document.querySelector('.guess-box')
         checkLetter()
+        winCheck()
         guessBox.value = ''
     })
 }
@@ -98,7 +103,11 @@ function checkLetter(){
         for(let i=0; i <= guessLetterInput.length; i++){
             if(guessWord[i]=== guessLetter){
                 guessLetterInput[i].textContent = guessLetter
-                charCount.push(guessLetter)
+                if(charCount.includes(guessLetter)=== false){
+                    charCount.push(guessLetter)
+                }else{
+                    return 
+                }
             }
         }    
     }
@@ -109,7 +118,9 @@ function winCheck(){
     if(charCount.length === guessWord.length){
         if(charCount.sort().join() === guessWord.sort().join()){
             alert('winner!')
+            makeNewWord()
         }   
+
     }else{
         return
     }
