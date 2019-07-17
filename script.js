@@ -36,3 +36,21 @@ function makeNewWord(){
     hrList.forEach( item => item.remove())
     wordForm.style.display = 'block'
 }
+
+// make carret down hide elements on click
+let carretDown = document.querySelector('.fa-caret-down')
+let menuContainer = document.querySelector('.menu-container')
+carretDown.addEventListener('click',hideMenu)
+function hideMenu(){
+    if(menuContainer.style.display = 'block'){
+        menuContainer.style.display = 'none' 
+    }
+}
+
+
+// create a guess box
+
+//create an area to store and display guessed letters
+
+//create a function to check letters against guessWord
+
