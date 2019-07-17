@@ -67,6 +67,16 @@ body{
     grid-column: 3/5;
     grid-row: 3;
     display: inline-flex;
+    text-align: center;
+    justify-content: space-around;
+    
+}
+
+
+.under-line{
+    grid-column: 3/5;
+    grid-row: 3;
+    display: inline-flex;
 }
 
 hr{

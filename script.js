@@ -23,8 +23,14 @@ function getInput(){
 let underLineContainer = document.querySelector('.under-line')
 function createUnderLines(){
     guessWord.forEach( letter => {
+        let letterContainer = document.createElement('div')
+        let letterSpot = document.createElement('h4')
         let hr = document.createElement('hr')
-        underLineContainer.appendChild(hr)
+        underLineContainer.appendChild(letterContainer)
+        letterContainer.appendChild(letterSpot)
+        letterContainer.appendChild(hr)
+        letterSpot.textContent = 'X'
+
     })
 }
 
@@ -83,6 +89,12 @@ function createSubmit(){
 //create a function to check letters against guessWord
 function checkLetter(){
     let guessLetter = document.querySelector('.guess-box').value.toLowerCase()
-    console.log(guessWord.includes(guessLetter))
-    
+    guessLetterInput = document.querySelectorAll('.under-line h4')
+    for(let i=0; i <= guessLetterInput.length; i++){
+        if(guessWord[i]=== guessLetter){
+            guessLetterInput[i].textContent = guessLetter
+        }
+    }    
 }
+
+// make sure that this can only happen once
