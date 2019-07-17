@@ -14,7 +14,8 @@ function getInput(){
 }
 
 // create elements based on whatever input the user gives for their term
-let layoutGrid = document.querySelector('.layout-grid')
+// need to account for spaces
+let layoutGrid = document.querySelector('.spaces')
 function createSpaces(){
     guessWord.forEach( letter => {
         let hr = document.createElement('hr')

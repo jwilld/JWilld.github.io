@@ -33,6 +33,18 @@ body{
     align-items: center;
     text-align: center;
 }
+.new-word{
+    grid-row:2;
+    grid-column: 1;
+    font-size: 15px;
+    display: inline-block;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+    
+
+
 .word-input{
     grid-column:3;
     grid-row: 3;
@@ -51,9 +63,14 @@ body{
 .text-input{
     font-size: 20px;
 }
+.spaces{
+    grid-column: 3/5;
+    grid-row: 4;
+    display: inline-flex;
+}
 
 hr{
     color: black;
-    width: 100px;
+    width: 50px;
     height: 0px;
 }
