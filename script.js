@@ -8,11 +8,12 @@ wordSubmit.addEventListener('click',getInput)
 //takes a user's input for desired word
 let guessWord = null
 function getInput(){
-    let wordInput = document.querySelector('.text-input').value
+    let wordInput = document.querySelector('.text-input').value.toLowerCase()
     guessWord = Array.from(wordInput)
     wordForm.style.display='none'
     createUnderLines()
     createGuessBox()
+    createSubmit()
 }
 
 // creates elements based on whatever input the user gives for their term
@@ -34,6 +35,8 @@ newWord.addEventListener('click',makeNewWord)
 
 function makeNewWord(){
     // removes the hr items
+    let guessSubmit = document.querySelector('.guess-submit')
+    guessSubmit.remove()
     let guessBox = document.querySelector('.guess-box')
     guessBox.remove()
     let hrList = document.querySelectorAll('.under-line hr')
@@ -58,10 +61,29 @@ function createGuessBox(){
     let guessBox = document.createElement('input');
     guessBox.classList.add('guess-box')
     guessBox.setAttribute('type','text')
+    guessBox.setAttribute('maxlength','1')
     guessContainer.appendChild(guessBox)
 }
+//create submit button/ change the case to lower case 
+//get input letter as user submits it
+// set a limit to the characters that can be input 
+function createSubmit(){
+    let guessSubmit = document.createElement('input')
+    guessSubmit.classList.add('guess-submit')
+    guessSubmit.setAttribute('type','submit')
+    guessSubmit.setAttribute('value','Guess')
+    guessContainer.appendChild(guessSubmit)
+    guessSubmit.addEventListener('click',function(){
+        let guessBox = document.querySelector('.guess-box')
+        console.log(guessBox.value)
+        guessBox.value = ''
+    })
+}
 
-//create an area to store and display guessed letters
+
+
+
+// 
 
 //create a function to check letters against guessWord
 

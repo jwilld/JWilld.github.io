@@ -85,3 +85,9 @@ hr{
     text-align: center;
     border: 1px solid black;
 }
+.guess-submit{
+    border: none;
+    font-size: 55px;
+    background: none;
+    text-align: center;
+}
