@@ -15,15 +15,18 @@ body{
     grid-template-columns: repeat(5,1fr);
     grid-template-rows: repeat(7,1fr);
 }
-/* 
-.title{
-    grid-row: 4; 
-    grid-column: 3;
-    display: flex;
+.wrong-container{
+    grid-column: 1;
+    grid-row:4;
+    color: red;
+    display: block;
     justify-content: center;
     align-items: center;
-    font-size: 25px;
-} */
+    text-align: center;
+}
+.wrong{
+    font-size: 50px;
+}
 .title{
     grid-row: 1; 
     grid-column: 1;
@@ -42,6 +45,12 @@ body{
     align-items: center;
     text-align: center;
 }
+.menu-container h4:hover{
+    color: rgb(209, 209, 209);
+}
+.wrong{
+    background-image: url()
+}
     
 
 
@@ -57,10 +66,12 @@ body{
 }
 .submit{
     border: .1px solid black;
-    background-color: white;
+    background-color: black;
+    color: white;
     font-size: 15px;
 }
 .text-input{
+    border: .2px solid black;
     font-size: 20px;
 }
 .under-line{
@@ -69,8 +80,9 @@ body{
     display: inline-flex;
     text-align: center;
     justify-content: space-around;
-    
+
 }
+
 
 
 .under-line{

@@ -29,7 +29,7 @@ function createUnderLines(){
         underLineContainer.appendChild(letterContainer)
         letterContainer.appendChild(letterSpot)
         letterContainer.appendChild(hr)
-        letterSpot.textContent = 'X'
+        letterSpot.textContent = '.'
 
     })
 }
@@ -41,6 +41,8 @@ newWord.addEventListener('click',makeNewWord)
 
 function makeNewWord(){
     // removes the hr items
+    let guessLetters = document.querySelectorAll('.under-line h4')
+    guessLetters.forEach( letter => letter.remove())
     let guessSubmit = document.querySelector('.guess-submit')
     guessSubmit.remove()
     let guessBox = document.querySelector('.guess-box')
@@ -52,13 +54,12 @@ function makeNewWord(){
 
 // click the carret down hides the menu
 // there needs to be a toggle to hide and show
-let carretDown = document.querySelector('.fa-caret-down')
+let carretDown = document.querySelector('.fas')
 let menuContainer = document.querySelector('.menu-container')
 carretDown.addEventListener('click',hideMenu)
 function hideMenu(){
-    if(menuContainer.style.display = 'block'){
-        menuContainer.style.display = 'none' 
-    }
+    $(carretDown).toggleClass("fa-angle-down")
+    $(menuContainer).fadeToggle('slow');
 }
 
 let guessContainer = document.querySelector('.guess-container')
@@ -86,15 +87,20 @@ function createSubmit(){
     })
 }
 
-//create a function to check letters against guessWord
+//checks letters against guessWord
+let wrong = document.querySelector('.wrong')
 function checkLetter(){
     let guessLetter = document.querySelector('.guess-box').value.toLowerCase()
-    guessLetterInput = document.querySelectorAll('.under-line h4')
-    for(let i=0; i <= guessLetterInput.length; i++){
-        if(guessWord[i]=== guessLetter){
-            guessLetterInput[i].textContent = guessLetter
-        }
-    }    
+    let guessLetterInput = document.querySelectorAll('.under-line h4')
+    if(guessWord.includes(guessLetter)=== false){
+        return console.log('wrong')
+    }else{
+        for(let i=0; i <= guessLetterInput.length; i++){
+            if(guessWord[i]=== guessLetter){
+                guessLetterInput[i].textContent = guessLetter
+            }
+        }    
+    }
 }
 
 // make sure that this can only happen once
