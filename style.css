@@ -63,7 +63,7 @@ body{
 .text-input{
     font-size: 20px;
 }
-.spaces{
+.under-line{
     grid-column: 3/5;
     grid-row: 4;
     display: inline-flex;
