@@ -75,15 +75,14 @@ function createSubmit(){
     guessContainer.appendChild(guessSubmit)
     guessSubmit.addEventListener('click',function(){
         let guessBox = document.querySelector('.guess-box')
-        console.log(guessBox.value)
+        checkLetter()
         guessBox.value = ''
     })
 }
 
-
-
-
-// 
-
 //create a function to check letters against guessWord
-
+function checkLetter(){
+    let guessLetter = document.querySelector('.guess-box').value.toLowerCase()
+    console.log(guessWord.includes(guessLetter))
+    
+}
