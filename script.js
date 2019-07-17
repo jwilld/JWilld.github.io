@@ -86,7 +86,7 @@ function createSubmit(){
         guessBox.value = ''
     })
 }
-
+let charCount = []
 //checks letters against guessWord
 let wrong = document.querySelector('.wrong')
 function checkLetter(){
@@ -98,9 +98,22 @@ function checkLetter(){
         for(let i=0; i <= guessLetterInput.length; i++){
             if(guessWord[i]=== guessLetter){
                 guessLetterInput[i].textContent = guessLetter
+                charCount.push(guessLetter)
             }
         }    
     }
 }
+
+// check for winning condition 
+function winCheck(){
+    if(charCount.length === guessWord.length){
+        if(charCount.sort().join() === guessWord.sort().join()){
+            alert('winner!')
+        }   
+    }else{
+        return
+    }
+}
+
 
 // make sure that this can only happen once
