@@ -1,21 +1,27 @@
-// the start page will have the word hangman center displayed
-// on click it will prompt the user for their desired word
-// the text will be hidden and when enter is pressed, the game starts
-let hangman = document.querySelector('.title h1')
-
-hangman.addEventListener('click',moveTitle)
-
-function moveTitle(){
-    let divClass = document.querySelector('.title')
-    divClass.removeAttribute('class')
-    divClass.classList.add('title-two')
-}
+// get word input from user 
+let wordSubmit = document.querySelector('.submit')
+let wordForm = document.querySelector('.word-input')
+wordSubmit.addEventListener('click',getInput)
 
 
 //take a user inpiut for desired word
-
-
+let guessWord = null
+function getInput(){
+    let wordInput = document.querySelector('.text-input').value
+    guessWord = Array.from(wordInput)
+    wordForm.style.display='none'
+    createSpaces()
+}
 
 // create elements based on whatever input the user gives for their term
+let layoutGrid = document.querySelector('.layout-grid')
+function createSpaces(){
+    guessWord.forEach( letter => {
+        let hr = document.createElement('hr')
+        layoutGrid.appendChild(hr)
+    })
+}
+
+
 //display it in a specficic area on the page(grid row/column)
 
