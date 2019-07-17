@@ -65,7 +65,7 @@ body{
 }
 .under-line{
     grid-column: 3/5;
-    grid-row: 4;
+    grid-row: 3;
     display: inline-flex;
 }
 
@@ -73,4 +73,15 @@ hr{
     color: black;
     width: 50px;
     height: 0px;
+}
+.guess-container{
+    grid-column:3/5;
+    grid-row: 4; 
+    text-align: center;
+}
+.guess-box{
+    font-size: 55px;
+    width: 100px;
+    text-align: center;
+    border: 1px solid black;
 }

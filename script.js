@@ -1,6 +1,7 @@
 // get word input from user 
 let wordSubmit = document.querySelector('.submit')
 let wordForm = document.querySelector('.word-input')
+let layOutGrid = document.querySelector('.layout-grid')
 wordSubmit.addEventListener('click',getInput)
 
 
@@ -11,6 +12,7 @@ function getInput(){
     guessWord = Array.from(wordInput)
     wordForm.style.display='none'
     createUnderLines()
+    createGuessBox()
 }
 
 // creates elements based on whatever input the user gives for their term
@@ -32,12 +34,15 @@ newWord.addEventListener('click',makeNewWord)
 
 function makeNewWord(){
     // removes the hr items
+    let guessBox = document.querySelector('.guess-box')
+    guessBox.remove()
     let hrList = document.querySelectorAll('.under-line hr')
     hrList.forEach( item => item.remove())
     wordForm.style.display = 'block'
 }
 
-// make carret down hide elements on click
+// click the carret down hides the menu
+// there needs to be a toggle to hide and show
 let carretDown = document.querySelector('.fa-caret-down')
 let menuContainer = document.querySelector('.menu-container')
 carretDown.addEventListener('click',hideMenu)
@@ -47,8 +52,14 @@ function hideMenu(){
     }
 }
 
-
+let guessContainer = document.querySelector('.guess-container')
 // create a guess box
+function createGuessBox(){
+    let guessBox = document.createElement('input');
+    guessBox.classList.add('guess-box')
+    guessBox.setAttribute('type','text')
+    guessContainer.appendChild(guessBox)
+}
 
 //create an area to store and display guessed letters
 
