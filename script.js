@@ -2,6 +2,8 @@
 let wordSubmit = document.querySelector('.submit')
 let wordForm = document.querySelector('.word-input')
 let layOutGrid = document.querySelector('.layout-grid')
+let hangManSprite = document.querySelector('.hangman-sprite')
+hangManSprite.style.display= 'none'
 wordSubmit.addEventListener('click',getInput)
 
 
@@ -11,6 +13,10 @@ function getInput(){
     let wordInput = document.querySelector('.text-input').value.toLowerCase()
     guessWord = Array.from(wordInput)
     wordForm.style.display='none'
+    let hangmanGif = document.querySelector('.hangman-gif')
+    hangmanGif.style.display = 'none'
+    hangManSprite.style.display = 'block'
+
     createUnderLines()
     createGuessBox()
     createSubmit()
@@ -74,6 +80,10 @@ function makeNewWord(){
     let hrList = document.querySelectorAll('.under-line hr')
     hrList.forEach( item => item.remove())
     wordForm.style.display = 'block'
+    let hangmanGif = document.querySelector('.hangman-gif')
+    hangmanGif.style.display = 'block'
+    hangManSprite.style.display = 'none'
+    
 }
 
 // click the carret down hides the menu
