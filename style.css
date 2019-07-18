@@ -23,12 +23,12 @@ body{
     background-repeat: no-repeat;
 }
 .hangman-sprite{
+    height: 104px;
+    width: 99px;
     background-image: url(img/string-break-Sheet.png);
     grid-column: 3;
     grid-row: 1;
     background-repeat: no-repeat;
-    background-size: contain;
-
 
 }
 .wrong-container{

@@ -52,10 +52,17 @@ newWord.addEventListener('click',makeNewWord)
 
 function makeNewWord(){
     // resets all of the game
+    position = 0
+    animateScript()
     wrongCount =0,
     guessWord = null
     let resultContainer = document.querySelector('.result-container')
-    resultContainer.remove()
+    try{
+        resultContainer.remove()
+    }
+    catch(e){
+        console.log('')
+    }
     let letterContainers = document.querySelectorAll('.under-line div')
     letterContainers.forEach(container => container.remove())
     let guessLetters = document.querySelectorAll('.under-line h4')
@@ -123,6 +130,7 @@ function checkLetter() {
     if (guessWord.includes(guessLetter) === false) {
         wrongCount++
         console.log('wrong')
+        animateScript()
     } else {
         for (let i = 0; i <= guessLetterInput.length; i++) {
             if (guessWord[i] === guessLetter) {
@@ -157,10 +165,10 @@ function tryAgain(){
 // let playerName= document.querySelector('.player-name')
 // playerName.addEventListener('click',getName)
 // function getName(){
-//     let nameInput = document.createElement('input')
-// }
-
-// check for winning condition 
+    //     let nameInput = document.createElement('input')
+    // }
+    
+    // check for winning condition 
 
 function winCheck() {
     let currentChars = []
@@ -175,6 +183,13 @@ function winCheck() {
     }
 }
 
+//animation consequence
+let position =  99
+function animateScript(){
+    let hangmanSprite = document.querySelector('.hangman-sprite')
+    hangmanSprite.style.backgroundPosition = `-${position}px 0px`
+    return position+= 99
+}
 
 
 
