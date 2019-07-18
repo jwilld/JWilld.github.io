@@ -51,7 +51,6 @@ body{
 .wrong{
     background-image: url()
 }
-    
 
 
 .word-input{
@@ -88,6 +87,9 @@ hr{
     color: black;
     width: 30px;
     height: 0px;
+}
+.white-space{
+    border:  solid white;
 }
 .guess-container{
     grid-column:3/5;

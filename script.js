@@ -21,17 +21,26 @@ function getInput(){
 //displays it in a specficic area on the page(grid row/column) I used the css to accomplish this
 
 let underLineContainer = document.querySelector('.under-line')
-function createUnderLines(){
-    guessWord.forEach( letter => {
+function createUnderLines() {
+    guessWord.forEach(letter => {
         let letterContainer = document.createElement('div')
         let letterSpot = document.createElement('h4')
         let hr = document.createElement('hr')
         underLineContainer.appendChild(letterContainer)
-        letterContainer.appendChild(letterSpot)
+        if(letter != " "){
+            letterContainer.appendChild(letterSpot)
+            letterSpot.textContent = '.'
+        }
+        if (letter === " ") {
+            hr.classList.add('white-space')
+        }
         letterContainer.appendChild(hr)
-        letterSpot.textContent = '.'
-
     })
+    for(i=0; i< guessWord.length;i++){
+        if(guessWord[i]===" "){
+            guessWord.splice(i,1)
+        }
+    }
 }
 
 // allow the user to change the word
