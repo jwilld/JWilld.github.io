@@ -40,8 +40,8 @@ let newWord = document.querySelector('.new-word')
 newWord.addEventListener('click',makeNewWord)
 
 function makeNewWord(){
-    // removes the hr items
-    charCount = []
+    // resets all of the game
+    wrongCount =0,
     guessWord = null
     let letterContainers = document.querySelectorAll('.under-line div')
     letterContainers.forEach(container => container.remove())
@@ -93,11 +93,13 @@ function createSubmit(){
 }
 //checks letters against guessWord
 let wrong = document.querySelector('.wrong')
+let wrongCount = 0
 function checkLetter() {
     let guessLetter = document.querySelector('.guess-box').value.toLowerCase()
     let guessLetterInput = document.querySelectorAll('.under-line h4')
     if (guessWord.includes(guessLetter) === false) {
-        return console.log('wrong')
+        wrongCount++
+        console.log('wrong')
     } else {
         for (let i = 0; i <= guessLetterInput.length; i++) {
             if (guessWord[i] === guessLetter) {
@@ -105,9 +107,13 @@ function checkLetter() {
             }
         }
     }
+    if(wrongCount === 6){
+        console.log('YOU LOSE!')
+        return makeNewWord()
+    }
 }
-        // check for winning condition 
-let charCount = []
+// check for winning condition 
+
 function winCheck() {
     let currentChars = []
     let guessLetterInput = document.querySelectorAll('.under-line h4')
