@@ -91,40 +91,36 @@ function createSubmit(){
         guessBox.value = ''
     })
 }
-let charCount = []
 //checks letters against guessWord
 let wrong = document.querySelector('.wrong')
-function checkLetter(){
+function checkLetter() {
     let guessLetter = document.querySelector('.guess-box').value.toLowerCase()
     let guessLetterInput = document.querySelectorAll('.under-line h4')
-    if(guessWord.includes(guessLetter)=== false){
+    if (guessWord.includes(guessLetter) === false) {
         return console.log('wrong')
-    }else{
-        for(let i=0; i <= guessLetterInput.length; i++){
-            if(guessWord[i]=== guessLetter){
+    } else {
+        for (let i = 0; i <= guessLetterInput.length; i++) {
+            if (guessWord[i] === guessLetter) {
                 guessLetterInput[i].textContent = guessLetter
-                if(charCount.includes(guessLetter)=== false){
-                    charCount.push(guessLetter)
-                }else{
-                    return 
-                }
             }
-        }    
+        }
+    }
+}
+        // check for winning condition 
+let charCount = []
+function winCheck() {
+    let currentChars = []
+    let guessLetterInput = document.querySelectorAll('.under-line h4')
+    guessLetterInput.forEach(letter => currentChars.push(letter.textContent))
+    console.log(currentChars)
+    if (currentChars.join() === guessWord.join()) {
+        console.log('winner!')
+        makeNewWord()
     }
 }
 
-// check for winning condition 
-function winCheck(){
-    if(charCount.length === guessWord.length){
-        if(charCount.sort().join() === guessWord.sort().join()){
-            alert('winner!')
-            makeNewWord()
-        }   
 
-    }else{
-        return
-    }
-}
+
 
 
 // make sure that this can only happen once
