@@ -62,25 +62,25 @@ function makeNewWord(){
     animateScript()
     wrongCount =0,
     guessWord = null
-    let resultContainer = document.querySelector('.result-container')
     try{
+        let resultContainer = document.querySelector('.result-container')
         resultContainer.remove()
+        let letterContainers = document.querySelectorAll('.under-line div')
+        letterContainers.forEach(container => container.remove())
+        let guessLetters = document.querySelectorAll('.under-line h4')
+        guessLetters.forEach( letter => letter.remove())
+        let guessSubmit = document.querySelector('.guess-submit')
+        guessSubmit.remove()
+        let guessBox = document.querySelector('.guess-box')
+        guessBox.remove()
+        let hrList = document.querySelectorAll('.under-line hr')
+        hrList.forEach( item => item.remove())
     }
     catch(e){
         console.log('')
     }
-    let letterContainers = document.querySelectorAll('.under-line div')
-    letterContainers.forEach(container => container.remove())
-    let guessLetters = document.querySelectorAll('.under-line h4')
-    guessLetters.forEach( letter => letter.remove())
-    let guessSubmit = document.querySelector('.guess-submit')
-    guessSubmit.remove()
-    let guessBox = document.querySelector('.guess-box')
-    guessBox.remove()
-    let hrList = document.querySelectorAll('.under-line hr')
-    hrList.forEach( item => item.remove())
-    wordForm.style.display = 'block'
     let hangmanGif = document.querySelector('.hangman-gif')
+    wordForm.style.display = 'block'
     hangmanGif.style.display = 'block'
     hangManSprite.style.display = 'none'
     
@@ -94,6 +94,13 @@ carretDown.addEventListener('click',hideMenu)
 function hideMenu(){
     $(carretDown).toggleClass("fa-angle-down")
     $(menuContainer).fadeToggle('slow');
+}
+// get rid of guess container elements on win or loss function
+function removeGuessSubmits(){
+    guessChildren = guessContainer.childNodes
+    for(let i=0; i!=guessChildren.length;){
+        guessChildren[i].remove()
+    }
 }
 
 let guessContainer = document.querySelector('.guess-container')
@@ -152,6 +159,7 @@ function checkLetter() {
 function wrongCheck(){
     if(wrongCount === 6){
        winOrLose = 'LOST!'
+       removeGuessSubmits()
        tryAgain()
     }
 }
@@ -188,6 +196,7 @@ function winCheck() {
         if (currentChars.join() === guessWord.join()) {
             console.log('winner!')
             winOrLose = 'WON!'
+            removeGuessSubmits()
             tryAgain()
         }
     }
