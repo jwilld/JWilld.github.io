@@ -73,6 +73,11 @@ function createGuessBox(){
     guessBox.classList.add('guess-box')
     guessBox.setAttribute('type','text')
     guessBox.setAttribute('maxlength','1')
+    guessBox.addEventListener('keyup',function(e){
+        if(e.keyCode === 13){
+            guessBoxCheck()
+        }
+    })
     guessContainer.appendChild(guessBox)
 }
 //create submit button/ change the case to lower case 
@@ -84,12 +89,15 @@ function createSubmit(){
     guessSubmit.setAttribute('type','submit')
     guessSubmit.setAttribute('value','Guess')
     guessContainer.appendChild(guessSubmit)
-    guessSubmit.addEventListener('click',function(){
-        let guessBox = document.querySelector('.guess-box')
-        checkLetter()
-        winCheck()
-        guessBox.value = ''
-    })
+    guessSubmit.addEventListener('click',guessBoxCheck)
+
+}
+//checks guess box 
+function guessBoxCheck(){
+    let guessBox = document.querySelector('.guess-box')
+    checkLetter()
+    winCheck()
+    guessBox.value = ''
 }
 //checks letters against guessWord
 let wrong = document.querySelector('.wrong')
@@ -118,10 +126,11 @@ function winCheck() {
     let currentChars = []
     let guessLetterInput = document.querySelectorAll('.under-line h4')
     guessLetterInput.forEach(letter => currentChars.push(letter.textContent))
-    console.log(currentChars)
-    if (currentChars.join() === guessWord.join()) {
-        console.log('winner!')
-        makeNewWord()
+    if(guessWord != null){
+        if (currentChars.join() === guessWord.join()) {
+            console.log('winner!')
+            makeNewWord()
+        }
     }
 }
 

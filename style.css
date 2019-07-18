@@ -80,6 +80,7 @@ body{
     display: inline-flex;
     text-align: center;
     justify-content: space-around;
+    padding: 0;margin:0;
 }
 
 
