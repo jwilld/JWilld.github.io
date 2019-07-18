@@ -36,13 +36,15 @@ function createUnderLines() {
         }
         letterContainer.appendChild(hr)
     })
-    for(i=0; i< guessWord.length;i++){
-        if(guessWord[i]===" "){
-            guessWord.splice(i,1)
+    removeSpaces()
+}
+function removeSpaces() {
+    for (i = 0; i < guessWord.length; i++) {
+        if (guessWord[i] === " ") {
+            guessWord.splice(i, 1)
         }
     }
 }
-
 // allow the user to change the word
 let newWord = document.querySelector('.new-word')
 
@@ -52,6 +54,8 @@ function makeNewWord(){
     // resets all of the game
     wrongCount =0,
     guessWord = null
+    let resultContainer = document.querySelector('.result-container')
+    resultContainer.remove()
     let letterContainers = document.querySelectorAll('.under-line div')
     letterContainers.forEach(container => container.remove())
     let guessLetters = document.querySelectorAll('.under-line h4')
@@ -105,10 +109,12 @@ function createSubmit(){
 function guessBoxCheck(){
     let guessBox = document.querySelector('.guess-box')
     checkLetter()
+    wrongCheck()
     winCheck()
     guessBox.value = ''
 }
 //checks letters against guessWord
+winOrLose = null
 let wrong = document.querySelector('.wrong')
 let wrongCount = 0
 function checkLetter() {
@@ -124,11 +130,36 @@ function checkLetter() {
             }
         }
     }
+}
+function wrongCheck(){
     if(wrongCount === 6){
-        console.log('YOU LOSE!')
-        return makeNewWord()
+       winOrLose = 'LOST!'
+       tryAgain()
     }
 }
+// make a try again feautre with the condition of win or lose displayed above
+function tryAgain(){
+    let makeResultContainer = document.createElement('div')
+    layOutGrid.appendChild(makeResultContainer)
+    makeResultContainer.classList.add('result-container')
+    let resultContainer = document.querySelector('.result-container')
+    let playAgain = document.createElement('p')
+    playAgain.classList.add('play-again')
+    playAgain.textContent = 'PLAY AGAIN'
+    let gameResult = document.createElement('h1')
+    gameResult.classList.add('game-result')
+    gameResult.textContent = `PLAYER ${winOrLose}`
+    resultContainer.append(gameResult,playAgain)
+    playAgain.addEventListener('click',makeNewWord)
+}
+
+// add player name entry
+// let playerName= document.querySelector('.player-name')
+// playerName.addEventListener('click',getName)
+// function getName(){
+//     let nameInput = document.createElement('input')
+// }
+
 // check for winning condition 
 
 function winCheck() {
@@ -138,7 +169,8 @@ function winCheck() {
     if(guessWord != null){
         if (currentChars.join() === guessWord.join()) {
             console.log('winner!')
-            makeNewWord()
+            winOrLose = 'WON!'
+            tryAgain()
         }
     }
 }

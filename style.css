@@ -15,6 +15,22 @@ body{
     grid-template-columns: repeat(5,1fr);
     grid-template-rows: repeat(7,1fr);
 }
+.hangman-gif{
+    grid-column: 2;
+    grid-row: 1;
+    background-image: url(img/fall.gif);
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+.hangman-sprite{
+    background-image: url(img/string-break-Sheet.png);
+    grid-column: 3;
+    grid-row: 1;
+    background-repeat: no-repeat;
+    background-size: contain;
+
+
+}
 .wrong-container{
     grid-column: 1;
     grid-row:4;
@@ -26,7 +42,9 @@ body{
 }
 .wrong{
     font-size: 50px;
+    background-image: url()
 }
+
 .title{
     grid-row: 1; 
     grid-column: 1;
@@ -48,10 +66,14 @@ body{
 .menu-container h4:hover{
     color: rgb(209, 209, 209);
 }
-.wrong{
-    background-image: url()
+.player-info{
+    grid-column: 1;
+    grid-row: 3;
+    display: inline-block;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
 }
-
 
 .word-input{
     grid-column:3;
@@ -61,6 +83,18 @@ body{
     justify-content: center;
     align-items: center;
     text-align: center;
+
+}
+.result-container{
+    grid-column: 3;
+    grid-row: 2;
+    display: inline-block;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+.play-again:hover{
+    color: rgb(158, 155, 155);
 
 }
 .submit{
