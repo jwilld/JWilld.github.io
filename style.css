@@ -48,7 +48,6 @@ body{
 }
 .fa-times:hover{
     color:rgba(0, 0, 0, 0.317);
-   font-size: 50px;
 }
 .wrong-container{
     grid-column: 3/4;
