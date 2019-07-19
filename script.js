@@ -218,7 +218,7 @@ let boxText = document.querySelector('.text')
 let boxContent = document.querySelector('.content')
 howTo.addEventListener('click',function(){
     box.style.display = 'block '
-    boxText.textContent ='this is how to play hangman'
+    boxText.textContent ='Choose a word for the someone to guess. The person guessing has to guess the word letter by letter. If they guess six incorrect letters then they lose.'
     
 })
 //add event listener to box close
@@ -228,12 +228,12 @@ function exit(){
     box.style.display = 'none'
 }
 
-let playerName = document.querySelector('.player-name')
-playerName.addEventListener('click',function(){
-    let nameInput = document.createElement('input')
-    nameInput.classList.add('player-name-input')
-    box.style.display = 'block'
-    boxContent.appendChild(nameInput)
-})
-
+// let playerName = document.querySelector('.player-name')
+// playerName.addEventListener('click',function(){
+//     box.style.display = 'block'
+//     box
+// })
+// function getName(){
+//         let nameInput = document.createElement('input')
+//     }
     
