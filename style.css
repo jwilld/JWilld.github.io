@@ -23,24 +23,44 @@ body{
     background-repeat: no-repeat;
 }
 .hangman-sprite{
-    height: 104px;
-    width: 99px;
-    background-image: url(img/string-break-Sheet.png);
+    left: 50%;
+    position: fixed;
+    z-index: 2;
+    height: 302px;
+    width: 250px;
+    background-image: url(img/string-break-200.png);
     grid-column: 3;
     grid-row: 1;
     background-repeat: no-repeat;
 
 }
+.box{
+    display: none;
+    grid-row: 2;
+    grid-column: 2;
+    border: 2px solid rgba(0, 0, 0, 0.585);
+    background-color: white;
+    z-index:1;
+    padding: 2%;
+}
+.fa-times{
+    font-size: 20px;
+}
+.fa-times:hover{
+    color:rgba(0, 0, 0, 0.317);
+   font-size: 50px;
+}
 .wrong-container{
-    grid-column: 1;
-    grid-row:4;
-    color: red;
+    grid-column: 3/4;
+    grid-row:1;
+    color: rgba(255, 0, 0, 0.29);
     display: block;
     justify-content: center;
     align-items: center;
     text-align: center;
 }
 .wrong{
+    position:fixed;
     font-size: 50px;
     background-image: url()
 }
@@ -144,4 +164,13 @@ hr{
 }
 .guess-submit:hover{
     color: rgb(158, 155, 155);
+}
+.submit:hover{
+    background-color:  white;
+    color:rgb(158, 155, 155);
+
+}
+
+.player-name-input{
+    border: .5px solid black;
 }

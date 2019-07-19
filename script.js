@@ -62,23 +62,29 @@ function makeNewWord(){
     animateScript()
     wrongCount =0,
     guessWord = null
+    wrong.textContent = null
     try{
         let resultContainer = document.querySelector('.result-container')
         resultContainer.remove()
-        let letterContainers = document.querySelectorAll('.under-line div')
-        letterContainers.forEach(container => container.remove())
-        let guessLetters = document.querySelectorAll('.under-line h4')
-        guessLetters.forEach( letter => letter.remove())
-        let guessSubmit = document.querySelector('.guess-submit')
-        guessSubmit.remove()
-        let guessBox = document.querySelector('.guess-box')
-        guessBox.remove()
-        let hrList = document.querySelectorAll('.under-line hr')
-        hrList.forEach( item => item.remove())
     }
     catch(e){
-        console.log('')
+        console.log(e)
     }
+    let letterContainers = document.querySelectorAll('.under-line div')
+    letterContainers.forEach(container => container.remove())
+    let guessLetters = document.querySelectorAll('.under-line h4')
+    guessLetters.forEach( letter => letter.remove())
+    try{
+        let guessBox = document.querySelector('.guess-box')
+        guessBox.remove()
+        let guessSubmit = document.querySelector('.guess-submit')
+        guessSubmit.remove()
+    }
+    catch(e){
+        console.log(e)
+    }
+    let hrList = document.querySelectorAll('.under-line hr')
+    hrList.forEach( item => item.remove())
     let hangmanGif = document.querySelector('.hangman-gif')
     wordForm.style.display = 'block'
     hangmanGif.style.display = 'block'
@@ -146,6 +152,7 @@ function checkLetter() {
     let guessLetterInput = document.querySelectorAll('.under-line h4')
     if (guessWord.includes(guessLetter) === false) {
         wrongCount++
+        wrong.textContent+=` ${guessLetter}`
         console.log('wrong')
         animateScript()
     } else {
@@ -180,13 +187,7 @@ function tryAgain(){
 }
 
 // add player name entry
-// let playerName= document.querySelector('.player-name')
-// playerName.addEventListener('click',getName)
-// function getName(){
-    //     let nameInput = document.createElement('input')
-    // }
-    
-    // check for winning condition 
+// check for winning condition 
 
 function winCheck() {
     let currentChars = []
@@ -203,14 +204,36 @@ function winCheck() {
 }
 
 //animation consequence
-let position =  99
+let position = 250
 function animateScript(){
     let hangmanSprite = document.querySelector('.hangman-sprite')
     hangmanSprite.style.backgroundPosition = `-${position}px 0px`
-    return position+= 99
+    return position+= 250
 }
 
+// add event listener to how to play 
+let box = document.querySelector('.box')
+let howTo = document.querySelector('.how-to-play')
+let boxText = document.querySelector('.text')
+let boxContent = document.querySelector('.content')
+howTo.addEventListener('click',function(){
+    box.style.display = 'block '
+    boxText.textContent ='this is how to play hangman'
+    
+})
+//add event listener to box close
+let closeBox = document.querySelector('.fa-times')
+closeBox.addEventListener('click',exit)
+function exit(){
+    box.style.display = 'none'
+}
 
+let playerName = document.querySelector('.player-name')
+playerName.addEventListener('click',function(){
+    let nameInput = document.createElement('input')
+    nameInput.classList.add('player-name-input')
+    box.style.display = 'block'
+    boxContent.appendChild(nameInput)
+})
 
-
-// make sure that this can only happen once
+    
