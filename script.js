@@ -1,4 +1,4 @@
-// get word input from user 
+
 let wordSubmit = document.querySelector('.submit')
 let wordForm = document.querySelector('.word-input')
 let layOutGrid = document.querySelector('.layout-grid')
@@ -7,11 +7,11 @@ hangManSprite.style.display= 'none'
 wordSubmit.addEventListener('click',getInput)
 
 
-//takes a user's input for desired word
+
 let guessWord = null
 function getInput(){
     let wordInput = document.querySelector('.text-input').value.toLowerCase()
-    guessWord = Array.from(wordInput)
+    guessWord = wordInput.split('')
     wordForm.style.display='none'
     let hangmanGif = document.querySelector('.hangman-gif')
     hangmanGif.style.display = 'none'
@@ -22,9 +22,6 @@ function getInput(){
     createSubmit()
 }
 
-// creates elements based on whatever input the user gives for their term
-// doesnt account for spaces
-//displays it in a specficic area on the page(grid row/column) I used the css to accomplish this
 
 let underLineContainer = document.querySelector('.under-line')
 function createUnderLines() {
@@ -51,7 +48,7 @@ function removeSpaces() {
         }
     }
 }
-// allow the user to change the word
+
 let newWord = document.querySelector('.new-word')
 
 newWord.addEventListener('click',makeNewWord)
@@ -92,8 +89,7 @@ function makeNewWord(){
     
 }
 
-// click the carret down hides the menu
-// there needs to be a toggle to hide and show
+
 let carretDown = document.querySelector('.fas')
 let menuContainer = document.querySelector('.menu-container')
 carretDown.addEventListener('click',hideMenu)
@@ -123,9 +119,7 @@ function createGuessBox(){
     })
     guessContainer.appendChild(guessBox)
 }
-//create submit button/ change the case to lower case 
-//get input letter as user submits it
-// set a limit to the characters that can be input 
+
 function createSubmit(){
     let guessSubmit = document.createElement('input')
     guessSubmit.classList.add('guess-submit')
@@ -143,7 +137,7 @@ function guessBoxCheck(){
     winCheck()
     guessBox.value = ''
 }
-//checks letters against guessWord
+
 winOrLose = null
 let wrong = document.querySelector('.wrong')
 let wrongCount = 0
@@ -170,7 +164,7 @@ function wrongCheck(){
        tryAgain()
     }
 }
-// make a try again feautre with the condition of win or lose displayed above
+
 function tryAgain(){
     let makeResultContainer = document.createElement('div')
     layOutGrid.appendChild(makeResultContainer)
@@ -186,8 +180,7 @@ function tryAgain(){
     playAgain.addEventListener('click',makeNewWord)
 }
 
-// add player name entry
-// check for winning condition 
+
 
 function winCheck() {
     let currentChars = []
@@ -203,7 +196,7 @@ function winCheck() {
     }
 }
 
-//animation consequence
+
 let position = 250
 function animateScript(){
     let hangmanSprite = document.querySelector('.hangman-sprite')
@@ -211,7 +204,7 @@ function animateScript(){
     return position+= 250
 }
 
-// add event listener to how to play 
+
 let box = document.querySelector('.box')
 let howTo = document.querySelector('.how-to-play')
 let boxText = document.querySelector('.text')
@@ -221,19 +214,9 @@ howTo.addEventListener('click',function(){
     boxText.textContent ='Choose a word for the someone to guess. The person guessing has to guess the word letter by letter. If they guess six incorrect letters then they lose.'
     
 })
-//add event listener to box close
+
 let closeBox = document.querySelector('.fa-times')
 closeBox.addEventListener('click',exit)
 function exit(){
     box.style.display = 'none'
 }
-
-// let playerName = document.querySelector('.player-name')
-// playerName.addEventListener('click',function(){
-//     box.style.display = 'block'
-//     box
-// })
-// function getName(){
-//         let nameInput = document.createElement('input')
-//     }
-    
