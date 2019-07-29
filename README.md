@@ -1,8 +1,7 @@
 # Hangman
 
 
-# Example 
-![hangman](https://i.imgur.com/6zoGv3O.png)
+
 
 # Description
 This project is a hangman game for two players. The word is decided by one player and can only be a total of thirteen characters and spaces. Once the first player submits the word, the second player has to input each letter until the word is spelled out. If the player reaches 6 incorrect letters, they lose and are prompted to try again. 
@@ -14,10 +13,14 @@ Fork and clone this repo and open the 'index.html' file in either Google Chrome 
 # List of Features
 The Bronze features included in this game are consequences, game information, reset/play again button, a display for incorrectly guessed letters, custom word input and user letter input. Silver features that haven't been implented yet are score tracking, user picked names, a hint box and a responsive design so it can be played on a mobile browser. Gold features I have planned are a detailed character animation, sounds that match a correct/incorrect guess and a better page style.
 
-# uilt With
+# Example 
+![hangman](https://i.imgur.com/6zoGv3O.png)
+
+# Built With
 JQuery
 Javascript
 Fontawesome
+
 
 
 
