@@ -1,5 +1,5 @@
 # Hangman
-![hangman](https://imgur.com/6zoGv3O)
+![hangman](https://i.imgur.com/6zoGv3O.png)
 
 # Description
 This project is a hangman game for two players. The word is decided by one player and can only be a total of thirteen characters and spaces. Once the first player submits the word, the second player has to input each letter until the word is spelled out. If the player reaches 6 incorrect letters, they lose and are prompted to try again. 
