@@ -17,9 +17,9 @@ The Bronze features included in this game are consequences, game information, re
 ![hangman](https://i.imgur.com/6zoGv3O.png)
 
 # Built With
-JQuery
-Javascript
-Fontawesome
+- JQuery
+- Javascript
+- Fontawesome
 
 
 
