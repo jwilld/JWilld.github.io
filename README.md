@@ -1,4 +1,7 @@
 # Hangman
+
+
+# Example 
 ![hangman](https://i.imgur.com/6zoGv3O.png)
 
 # Description
